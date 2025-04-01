@@ -183,7 +183,7 @@ class Robot:
         if track_copy.get_at((edge_x, edge_y)) == BLACK_COLOR:
             self.crash = True
             self.cost_function = float('inf')
-        if self.time >= 20:  # 45 second time limit per iteration
+        if self.time >= 20:  # 20 second time limit per iteration
             self.crash = True
             if self.cost_function < float('inf'):
                 self.cost_function *= 1.2  # Slight penalty for not finishing in time
@@ -291,7 +291,7 @@ while running and iteration < max_iteration:
     robot_available = pop_size
     iteration_start_time = time.time()
 
-    # Simulation loop for current iteration (45 seconds max)
+    # Simulation loop for current iteration (20 seconds max)
     while robot_available > 0 and (time.time() - iteration_start_time) < 20:
         # Handle events
         for event in pygame.event.get():
